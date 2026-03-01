@@ -1,6 +1,6 @@
 Hello world! 
 
-Welcome to FoA 2025 Sem 1!
+Welcome to FoA 2026 Sem 1!
 
 I plan to update these notes throughout the semester so that they might be useful to you for the exam.
 
