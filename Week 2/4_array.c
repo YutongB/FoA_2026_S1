@@ -6,6 +6,8 @@
 void printArrayInfo(int *arr) {
     printf("Array received in function: %p\n", (void *)arr);
     printf("First element in function: %d\n", *arr);
+    // sizeof(arr) is the size of a pointer, not the array — size info is lost!
+    printf("sizeof(arr) in function: %zu (pointer size, not array size!)\n", sizeof(arr));
 }
 
 int main() {
@@ -14,16 +16,23 @@ int main() {
 
     printf("Variable A is: %p\n", (void *)A);
     printf("Variable ptr is: %p\n", (void *)ptr);
+    printf("sizeof(A) = %zu, sizeof(ptr) = %zu\n", sizeof(A), sizeof(ptr));
 
     printf("\nArray index operator is syntax sugar for pointer arithmetic:\n");
     printf("A[1] = %d\n", A[1]);
     printf("*(A + 1) = %d\n", *(A + 1)); // Equivalent to A[1]
     printf("So, A[i] is equivalent to *(A + i).\n");
 
+    printf("\nIterating with pointer arithmetic:\n");
+    for (int *p = A; p < A + SIZE; p++) {
+        printf("%d ", *p);
+    }
+    printf("\n");
+
     printf("\nWhat happens with out-of-bound indices?\n");
     printf("A[-1] might access memory before the array: %d\n", A[-1]); // Undefined behavior
     printf("A[SIZE] (beyond array) might access memory immediately after the array: %d\n", A[SIZE]); // Undefined behavior
-    // A[400000000] is highly likely to cause a segmentation fault, so it's commented out to avoid crashing the program.
+    // A[400000000] is highly likely to cause a segmentation fault -- uncomment only if you want to demo a crash:
     printf("A[400000000]: %d\n", A[400000000]);
 
     printf("\nPassing arrays to functions -- what gets passed?\n");
