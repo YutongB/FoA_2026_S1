@@ -29,11 +29,11 @@ int main() {
     }
     printf("\n");
 
-    printf("\nWhat happens with out-of-bound indices?\n");
-    printf("A[-1] might access memory before the array: %d\n", A[-1]); // Undefined behavior
-    printf("A[SIZE] (beyond array) might access memory immediately after the array: %d\n", A[SIZE]); // Undefined behavior
-    // A[400000000] is highly likely to cause a segmentation fault -- uncomment only if you want to demo a crash:
-    printf("A[400000000]: %d\n", A[400000000]);
+    // printf("\nWhat happens with out-of-bound indices?\n");
+    // printf("A[-1] might access memory before the array: %d\n", A[-1]); // Undefined behavior
+    // printf("A[SIZE] (beyond array) might access memory immediately after the array: %d\n", A[SIZE]); // Undefined behavior
+    // // A[400000000] is highly likely to cause a segmentation fault -- uncomment only if you want to demo a crash:
+    // printf("A[400000000]: %d\n", A[400000000]);
 
     printf("\nPassing arrays to functions -- what gets passed?\n");
     printArrayInfo(A); // The address of the first element is passed
